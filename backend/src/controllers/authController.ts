@@ -21,7 +21,7 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
     try {
         const validation = registerSchema.safeParse(req.body);
         if (!validation.success) {
-            res.status(400).json({ message: validation.error.errors[0].message });
+            res.status(400).json({ message: validation.error.issues[0].message });
             return;
         }
 
@@ -62,7 +62,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const validation = loginSchema.safeParse(req.body);
         if (!validation.success) {
-            res.status(400).json({ message: validation.error.errors[0].message });
+            res.status(400).json({ message: validation.error.issues[0].message });
             return;
         }
         const { email, password } = req.body;
