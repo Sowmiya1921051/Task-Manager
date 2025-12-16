@@ -39,8 +39,6 @@ app.get('/', (req, res) => {
     res.send('API is running...');
 });
 
-
-
 // Socket.io connection (placeholder)
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
