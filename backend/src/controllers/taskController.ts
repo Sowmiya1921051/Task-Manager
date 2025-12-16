@@ -23,6 +23,11 @@ export const createTask = async (req: Request, res: Response): Promise<void> => 
             return;
         }
 
+        if (!req.user) {
+            res.status(401).json({ message: 'User not authenticated' });
+            return;
+        }
+
         const { title, description, dueDate, priority, status, assignedToId } = req.body;
 
         const task = await Task.create({
