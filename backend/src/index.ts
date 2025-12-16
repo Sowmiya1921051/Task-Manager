@@ -35,8 +35,16 @@ import taskRoutes from './routes/taskRoutes';
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
+// app.get('/', (req, res) => {
+//     res.send('API is running...');
+// });
+
 app.get('/', (req, res) => {
-    res.send('API is running...');
+    res.send({
+        activeStatus: true,
+        error : false,
+        message : "Server is running..."
+    });
 });
 
 // Socket.io connection (placeholder)
