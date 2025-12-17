@@ -39,6 +39,11 @@ app.get('/', (req, res) => {
     res.send('API is running...');
 });
 
+// example api route
+app.get("/api/test", (req, res) => {
+  res.json({ message: "API working" });
+});
+
 // Socket.io connection (placeholder)
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
