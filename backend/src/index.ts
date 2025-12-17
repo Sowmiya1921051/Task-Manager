@@ -60,3 +60,6 @@ httpServer.listen(PORT, () => {
 
 export { io };
 // Trigger restart
+
+
+export default app; 
