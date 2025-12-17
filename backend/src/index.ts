@@ -4,13 +4,14 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
-import connectDB from './config/db';
+import connectDB from "./config/db.js";
+
 
 dotenv.config();
 
 connectDB();
 
-import authRoutes from './routes/authRoutes';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const httpServer = createServer(app);
@@ -30,7 +31,7 @@ app.use(cors({
     credentials: true
 }));
 
-import taskRoutes from './routes/taskRoutes';
+import taskRoutes from './routes/taskRoutes.js';
 
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
@@ -39,10 +40,7 @@ app.get('/', (req, res) => {
     res.send('API is running...');
 });
 
-// example api route
-app.get("/api/test", (req, res) => {
-  res.json({ message: "API working" });
-});
+
 
 // Socket.io connection (placeholder)
 io.on('connection', (socket) => {
@@ -62,4 +60,4 @@ export { io };
 // Trigger restart
 
 
-export default app; 
+// export default app; 

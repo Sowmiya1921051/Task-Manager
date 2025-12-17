@@ -1,5 +1,5 @@
-import { createTask } from '../controllers/taskController';
-import Task from '../models/Task';
+import { createTask } from '../controllers/taskController.js';
+import Task from '../models/Task.js';
 import { Request, Response } from 'express';
 import mongoose from 'mongoose';
 

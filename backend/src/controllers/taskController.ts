@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Task from '../models/Task';
+import Task from '../models/Task.js';
 import { z } from 'zod';
 import { Server } from 'socket.io';
 
