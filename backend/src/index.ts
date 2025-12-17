@@ -16,30 +16,44 @@ import authRoutes from './routes/authRoutes.js';
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
-    cors: {
-        origin: ["http://localhost:5173", "http://localhost:3000"],
-        credentials: true
-    }
+  cors: {
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://task-manager-6br2.vercel.app"
+    ],
+    credentials: true
+  }
 });
+
 
 app.set('io', io);
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
-    credentials: true
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://task-manager-6br2.vercel.app"
+  ],
+  credentials: true
 }));
+
 
 import taskRoutes from './routes/taskRoutes.js';
 
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('API is running...');
 });
 
+
+app.get("/", (req, res) => {
+  res.send("Backend running on Vercel ✅");
+});
 
 
 // Socket.io connection (placeholder)
