@@ -19,7 +19,7 @@ const httpServer = createServer(app);
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  "https://grand-cheesecake-3052a8.netlify.app" // <-- replace with your Netlify URL
+  "https://task-manage-r.netlify.app" // <-- replace with your Netlify URL
 ];
 
 // ✅ Apply CORS for Express
