@@ -1,19 +1,21 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import cookieParser from 'cookie-parser';
-import { createServer } from 'http';
-import { Server } from 'socket.io';
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import { createServer } from "http";
+import { Server } from "socket.io";
 import connectDB from "./config/db.js";
+
+import authRoutes from "./routes/authRoutes.js";
+import taskRoutes from "./routes/taskRoutes.js";
 
 dotenv.config();
 connectDB();
 
-import authRoutes from './routes/authRoutes.js';
-import taskRoutes from './routes/taskRoutes.js';
-
 const app = express();
 const httpServer = createServer(app);
+
+/* ===================== CORS ===================== */
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -22,7 +24,7 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -34,14 +36,13 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-app.options("*", cors()); // 🔥 VERY IMPORTANT
+/* ===================== MIDDLEWARE ===================== */
 
-
-// ✅ Apply middlewares
 app.use(express.json());
 app.use(cookieParser());
 
-// ✅ Apply CORS for Socket.IO
+/* ===================== SOCKET.IO ===================== */
+
 const io = new Server(httpServer, {
   cors: {
     origin: allowedOrigins,
@@ -49,34 +50,36 @@ const io = new Server(httpServer, {
   }
 });
 
-// Make io accessible in routes if needed
-app.set('io', io);
+app.set("io", io);
 
-// ✅ Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/tasks', taskRoutes);
+/* ===================== ROUTES ===================== */
 
-// Health route
-app.get('/api', (req, res) => {
-  res.send('API is running...');
+app.use("/api/auth", authRoutes);
+app.use("/api/tasks", taskRoutes);
+
+app.get("/api", (req, res) => {
+  res.send("API is running...");
 });
 
-// Root route
 app.get("/", (req, res) => {
   res.send("Backend running on Render ✅");
 });
 
-// ✅ Socket.IO connection
-io.on('connection', (socket) => {
-  console.log('A user connected:', socket.id);
-  socket.on('disconnect', () => {
-    console.log('User disconnected:', socket.id);
+/* ===================== SOCKET EVENTS ===================== */
+
+io.on("connection", (socket) => {
+  console.log("User connected:", socket.id);
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected:", socket.id);
   });
 });
 
-// ✅ Start server
+/* ===================== SERVER ===================== */
+
 const PORT = process.env.PORT || 5000;
-httpServer.listen(PORT, () => {
+
+httpServer.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
 
