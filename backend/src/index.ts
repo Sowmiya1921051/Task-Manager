@@ -15,18 +15,27 @@ import taskRoutes from './routes/taskRoutes.js';
 const app = express();
 const httpServer = createServer(app);
 
-// ✅ Set allowed origins for frontend (local + Netlify)
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  "https://task-manage-r.netlify.app" // <-- replace with your Netlify URL
+  "https://task-manage-r.netlify.app"
 ];
 
-// ✅ Apply CORS for Express
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+app.options("*", cors()); // 🔥 VERY IMPORTANT
+
 
 // ✅ Apply middlewares
 app.use(express.json());
