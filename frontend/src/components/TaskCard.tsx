@@ -1,12 +1,12 @@
-import { useUpdateTask, useDeleteTask } from '../hooks/useTasks'; // Changed import path to hooks folder
+import { useUpdateTask, useDeleteTask } from '../hooks/useTasks'; 
 
 interface TaskCardProps {
     task: any;
 }
 
 const TaskCard = ({ task }: TaskCardProps) => {
-    const updateTaskMutation = useUpdateTask(); // Renamed to avoid conflict
-    const deleteTaskMutation = useDeleteTask(); // Renamed to avoid conflict
+    const updateTaskMutation = useUpdateTask(); 
+    const deleteTaskMutation = useDeleteTask();
 
     const priorityColors = {
         Low: 'bg-green-100 text-green-800',
@@ -37,7 +37,6 @@ const TaskCard = ({ task }: TaskCardProps) => {
                 Assigned to: {task.assignedToId?.name || 'Unassigned'}
             </div>
 
-            {/* Simple Drag and Drop simulation buttons for MVP */}
             <div className="flex gap-1 mt-2">
                 {task.status !== 'To Do' && <button className="text-xs bg-gray-200 px-1 rounded" onClick={() => updateTaskMutation.mutate({ id: task._id, data: { status: 'To Do' } })}>To Do</button>}
                 {task.status !== 'In Progress' && <button className="text-xs bg-blue-100 px-1 rounded" onClick={() => updateTaskMutation.mutate({ id: task._id, data: { status: 'In Progress' } })}>Prog</button>}

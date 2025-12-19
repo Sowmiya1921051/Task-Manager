@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useTasks } from '../hooks/useTasks';
 import { useSocket } from '../hooks/useSocket';
-import { useQueryClient } from '@tanstack/react-query'; // Import queryClient hook
+import { useQueryClient } from '@tanstack/react-query'; 
 import TaskCard from '../components/TaskCard';
 import { Link } from 'react-router-dom';
 
