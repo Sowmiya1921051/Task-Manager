@@ -9,8 +9,6 @@ import {
     LayoutDashboard,
     Plus,
     LogOut,
-    Search,
-    Bell,
     CheckCircle,
     Clock,
     AlertCircle,
