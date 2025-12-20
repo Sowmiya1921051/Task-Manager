@@ -31,9 +31,7 @@ const LoginPage = () => {
         <div className="min-h-screen flex items-center justify-center bg-ethereal p-6">
             <div className="glass-card p-10 w-full max-w-md animate-fade-in">
                 <div className="text-center mb-10">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 text-white rounded-2xl shadow-xl shadow-indigo-200 mb-6 font-black text-2xl">
-                        TF
-                    </div>
+                    
                     <h2 className="text-3xl font-black text-slate-900 tracking-tight">Welcome Back</h2>
                     <p className="text-slate-500 font-bold text-sm mt-2 opacity-80 uppercase tracking-widest">Login to your workspace</p>
                 </div>
@@ -45,7 +43,7 @@ const LoginPage = () => {
                             {...register('email')}
                             className="block w-full rounded-2xl border-white/60 bg-white/40 backdrop-blur-md shadow-inner transition-all focus:ring-2 focus:ring-indigo-200 focus:bg-white/60 text-slate-700 font-medium p-4 outline-none border"
                             type="email"
-                            placeholder="name@company.com"
+                            placeholder="Enter your email address"
                         />
                         {errors.email && <p className="text-rose-500 text-xs mt-2 font-bold">{errors.email.message}</p>}
                     </div>
@@ -72,7 +70,7 @@ const LoginPage = () => {
                     <p className="text-sm text-slate-500 font-bold">
                         New around here?{' '}
                         <Link to="/register" className="text-indigo-600 hover:text-indigo-500 transition-colors border-b-2 border-indigo-100 hover:border-indigo-400">
-                            Create Workspace
+                            Create Account
                         </Link>
                     </p>
                 </div>

@@ -32,9 +32,7 @@ const RegisterPage = () => {
         <div className="min-h-screen flex items-center justify-center bg-ethereal p-6">
             <div className="glass-card p-10 w-full max-w-md animate-fade-in">
                 <div className="text-center mb-10">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-600 text-white rounded-2xl shadow-xl shadow-indigo-200 mb-6 font-black text-2xl animate-float">
-                        TF
-                    </div>
+                   
                     <h2 className="text-3xl font-black text-slate-900 tracking-tight">Create Workspace</h2>
                     <p className="text-slate-500 font-bold text-sm mt-2 opacity-80 uppercase tracking-widest">Start your journey today</p>
                 </div>
@@ -46,7 +44,7 @@ const RegisterPage = () => {
                             {...register('name')}
                             className="block w-full rounded-2xl border-white/60 bg-white/40 backdrop-blur-md shadow-inner transition-all focus:ring-2 focus:ring-indigo-200 focus:bg-white/60 text-slate-700 font-medium p-4 outline-none border"
                             type="text"
-                            placeholder="John Doe"
+                            placeholder="Enter your name"
                         />
                         {errors.name && <p className="text-rose-500 text-xs mt-2 font-bold">{errors.name.message}</p>}
                     </div>
@@ -56,7 +54,7 @@ const RegisterPage = () => {
                             {...register('email')}
                             className="block w-full rounded-2xl border-white/60 bg-white/40 backdrop-blur-md shadow-inner transition-all focus:ring-2 focus:ring-indigo-200 focus:bg-white/60 text-slate-700 font-medium p-4 outline-none border"
                             type="email"
-                            placeholder="name@company.com"
+                            placeholder="Enter your email address"
                         />
                         {errors.email && <p className="text-rose-500 text-xs mt-2 font-bold">{errors.email.message}</p>}
                     </div>
