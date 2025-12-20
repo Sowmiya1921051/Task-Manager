@@ -86,10 +86,6 @@ const DashboardPage = () => {
                 </div>
 
                 <div className="flex items-center gap-8">
-                    <div className="hidden lg:flex items-center bg-white/40 border border-white/60 backdrop-blur-md rounded-2xl px-4 py-2 focus-within:ring-2 focus-within:ring-indigo-200 focus-within:bg-white/60 transition-all w-80">
-                        <Search size={18} className="text-slate-400" />
-                        <input type="text" placeholder="Search tasks..." className="bg-transparent border-none focus:outline-none text-sm px-3 w-full text-slate-700 placeholder:text-slate-400 font-medium" />
-                    </div>
 
                     <div className="flex items-center gap-4">
                         <div className="text-right hidden sm:block">
