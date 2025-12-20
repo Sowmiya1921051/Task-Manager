@@ -1,160 +1,69 @@
 # 🚀 Collaborative Task Manager
 
-A premium, full-stack collaborative task management application (Trello/Jira clone) featuring real-time updates, glassmorphism UI, and robust authentication.
-
-![Task Manager Preview](https://via.placeholder.com/800x400?text=Task+Manager+Dashboard+Preview)
+A full-stack task management application with real-time collaboration, secure authentication, and a modern dashboard UI.
 
 ## ✨ Features
-
--   **🔐 Secure Authentication**: JWT-based authentication with HttpOnly cookies for enhanced security.
--   **📋 Kanban Board**: Dynamic board with "To Do", "In Progress", and "Completed" columns.
--   **🔄 Real-time Collaboration**: Instant task updates across all connected clients using Socket.io.
--   **🎨 Premium UI/UX**: Modern dashboard design with glassmorphism effects, smooth animations, and responsive layouts using Tailwind CSS.
--   **📊 Task Analytics**: Quick overview of total, completed, and pending tasks.
--   **🔍 Search & Filter**: Easily find tasks by title or filter by status.
-
----
-
-## 🛠 My Development Journey
-
-This project showcases my ability to build a production-grade, full-stack application from scratch while solving complex engineering challenges.
-
-### 🌟 Key Achievements
-
-1.  **🎨 Modern UI/UX Redesign**:
-    -   Implemented a **Glassmorphism Design System** from scratch using Vanilla CSS and Tailwind utility variables.
-    -   Created a custom "Hub" navigation for high accessibility and a premium dashboard feel.
-    -   Added subtle micro-animations and smooth transitions for a responsive user experience.
-
-2.  **🏗 Robust Backend Architecture**:
-    -   Migrated to **Express 5** and optimized middleware for higher performance.
-    -   Ensured **100% Type Safety** across the board, including custom Express request types for user sessions.
-    -   Implemented a centralized error handling and database connection strategy.
-
-3.  **🔐 Security & Privacy**:
-    -   Enforced **Task Isolation logic**: Users can only interact with tasks they created or are assigned to, preventing data leakage.
-    -   Secure session management using **HttpOnly Cookies** and JWT.
-
-4.  **⚡ Real-time Collaboration**:
-    -   Integrated **Socket.io** to synchronize the Kanban board state across multiple browser tabs/users instantly.
-
-5.  **⚙ DevOps & Bug Squashing**:
-    -   Resolved critical environment-specific issues like wildcard routing errors and port binding conflicts for smooth deployment.
-
----
+- 🔐 JWT Authentication with HttpOnly cookies  
+- 📋 Kanban-style task board (To Do, In Progress, Completed)  
+- 🔄 Real-time updates using Socket.io  
+- 🎨 Responsive UI built with Tailwind CSS  
+- 🔍 Search and filter tasks  
 
 ## 🛠 Tech Stack
-
-### Frontend
--   **Framework**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
--   **Language**: [TypeScript](https://www.typescriptlang.org/)
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **State Management**: [TanStack Query (React Query) v5](https://tanstack.com/query/latest)
--   **Forms**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
--   **Icons**: [Lucide React](https://lucide.dev/)
-
-### Backend
--   **Runtime**: [Node.js](https://nodejs.org/)
--   **Framework**: [Express 5](https://expressjs.com/)
--   **Database**: [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
--   **Real-time**: [Socket.io](https://socket.io/)
--   **Security**: [Bcryptjs](https://github.com/dcodeIO/bcrypt.js) & [JSON Web Token](https://jwt.io/)
-
----
+**Frontend:** React (Vite) · TypeScript · Tailwind CSS · React Query  
+**Backend:** Node.js · Express · MongoDB · Mongoose · Socket.io  
 
 ## 📂 Project Structure
-
-```text
 Task-Manager/
-├── backend/                # Node.js + Express + TS
-│   ├── src/
-│   │   ├── config/         # Database configuration
-│   │   ├── controllers/    # Request handlers
-│   │   ├── middlewares/    # Auth & error middlewares
-│   │   ├── models/         # Mongoose schemas
-│   │   ├── routes/         # API endpoint definitions
-│   │   └── index.ts        # Server entry point
-│   └── tests/              # Backend unit tests
-├── frontend/               # React + Vite + TS
-│   ├── src/
-│   │   ├── api/            # Axios instance & API calls
-│   │   ├── components/     # Reusable UI components
-│   │   ├── context/        # Auth context provider
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── pages/          # Dashboard, Login, Register
-│   │   └── App.tsx         # Main app component
-└── README.md
-```
+├── backend/ # Express + MongoDB
+└── frontend/ # React + Vite
 
----
 
 ## 🚀 Getting Started
 
-### Prerequisites
--   Node.js (v18+)
--   MongoDB (Local or Atlas)
-
-### 1. Clone the project
-```bash
-git clone https://github.com/Sowmiya1921051/Task-Manager.git
-cd Task-Manager
-```
-
-### 2. Backend Setup
+### Backend
 ```bash
 cd backend
 npm install
-```
-Create a `.env` file in the `backend` folder:
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_key
-NODE_ENV=development
-```
-Run the server:
-```bash
 npm run dev
-```
 
-### 3. Frontend Setup
-```bash
-cd ../frontend
+Frontend
+cd frontend
 npm install
-```
-Create a `.env` file in the `frontend` folder:
-```env
-VITE_API_URL=http://localhost:5000/api
-```
-Run the client:
-```bash
 npm run dev
-```
+
+🔌 API Endpoints
+
+POST /api/auth/login
+
+POST /api/auth/register
+
+GET /api/tasks
+
+POST /api/tasks
+
+PUT /api/tasks/:id
+
+DELETE /api/tasks/:id
+
+📄 License
+
+ISC License
+
 
 ---
 
-## 🔌 API Endpoints
+## ✅ Why this version is good
+✔ Short & readable  
+✔ Recruiter-friendly  
+✔ Clean GitHub display  
+✔ Easy to understand architecture  
+✔ Perfect for Internshala / Resume links  
 
-### Auth
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login & get session cookie
-- `POST /api/auth/logout` - Clear session
+If you want:
+- 🔥 **One-page Internshala explanation**
+- 📸 **Add screenshots section**
+- 🎥 **Add demo video link**
+- 💼 **Resume project description**
 
-### Tasks
-- `GET /api/tasks` - Get all tasks for logged-in user
-- `POST /api/tasks` - Create a new task
-- `PUT /api/tasks/:id` - Update task status/details
-- `DELETE /api/tasks/:id` - Remove a task
-
----
-
-## 🧪 Testing
-
-Run backend unit tests using Jest:
-```bash
-cd backend
-npm test
-```
-
-## 📄 License
-This project is licensed under the ISC License.
+Just tell me 👍
