@@ -29,7 +29,6 @@ h6 {
     font-family: 'Outfit', sans-serif;
 }
 
-/* Premium Mesh Background */
 .bg-mesh {
     background-color: #f8fafc;
     background-image:
@@ -39,7 +38,6 @@ h6 {
     background-attachment: fixed;
 }
 
-/* Light / Pastel Mesh Background for Glassmorphism */
 .bg-ethereal {
     background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
     background-attachment: fixed;
@@ -73,13 +71,11 @@ h6 {
     animation: float 25s infinite alternate-reverse;
 }
 
-/* Glassmorphism Classes */
 .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgb(192, 219, 255);
-    /* box-shadow: var(--glass-shadow); */
     border-radius: 1.5rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -101,7 +97,6 @@ h6 {
     z-index: 100;
 }
 
-/* Buttons */
 .btn-primary {
     background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
     color: white;
@@ -119,7 +114,6 @@ h6 {
     filter: brightness(1.1);
 }
 
-/* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
 }
@@ -137,7 +131,6 @@ h6 {
     background: rgba(99, 102, 241, 0.4);
 }
 
-/* Animations */
 @keyframes float {
     0% {
         transform: translate(0, 0);

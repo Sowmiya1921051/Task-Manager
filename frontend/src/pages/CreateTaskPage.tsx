@@ -8,7 +8,7 @@ const createTaskSchema = z.object({
     title: z.string().min(1, 'Title is required').max(100),
     description: z.string().optional(),
     priority: z.enum(['Low', 'Medium', 'High', 'Urgent']),
-    dueDate: z.string().optional(), // HTML date input returns string
+    dueDate: z.string().optional(), 
 });
 
 type CreateTaskInputs = z.infer<typeof createTaskSchema>;

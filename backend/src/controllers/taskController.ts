@@ -12,9 +12,7 @@ const taskSchema = z.object({
     assignedToId: z.string().optional(),
 });
 
-// @desc    Create new task
-// @route   POST /api/tasks
-// @access  Private
+
 export const createTask = async (req: Request, res: Response): Promise<void> => {
     try {
         const validation = taskSchema.safeParse(req.body);
@@ -44,7 +42,6 @@ export const createTask = async (req: Request, res: Response): Promise<void> => 
         io.emit('task:created', task);
 
         if (assignedToId) {
-            // Notify specific user (implementation depends on socket mapping, for now broadcast assignment event)
             io.emit('notification', { message: `You have been assigned to task: ${title}`, userId: assignedToId });
         }
 
@@ -54,9 +51,7 @@ export const createTask = async (req: Request, res: Response): Promise<void> => 
     }
 };
 
-// @desc    Get all tasks
-// @route   GET /api/tasks
-// @access  Private
+
 export const getTasks = async (req: Request, res: Response) => {
     try {
         const tasks = await Task.find({
@@ -71,9 +66,7 @@ export const getTasks = async (req: Request, res: Response) => {
     }
 };
 
-// @desc    Update task
-// @route   PUT /api/tasks/:id
-// @access  Private
+
 export const updateTask = async (req: Request, res: Response): Promise<void> => {
     try {
         const task = await Task.findById(req.params.id);
@@ -83,8 +76,6 @@ export const updateTask = async (req: Request, res: Response): Promise<void> => 
             return;
         }
 
-        // Optional: Check permissions (only creator or assignee can update? Or anyone in collab app?)
-        // For now assuming open collaboration as per prompt "users see updates instantly" implies shared workspace.
 
         const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
@@ -93,7 +84,6 @@ export const updateTask = async (req: Request, res: Response): Promise<void> => 
         const io: Server = req.app.get('io');
         io.emit('task:updated', updatedTask);
 
-        // Check if assignment changed
         if (req.body.assignedToId && req.body.assignedToId !== task.assignedToId?.toString()) {
             io.emit('notification', { message: `You have been assigned to task: ${updatedTask?.title}`, userId: req.body.assignedToId });
         }
@@ -104,9 +94,7 @@ export const updateTask = async (req: Request, res: Response): Promise<void> => 
     }
 };
 
-// @desc    Delete task
-// @route   DELETE /api/tasks/:id
-// @access  Private
+
 export const deleteTask = async (req: Request, res: Response): Promise<void> => {
     try {
         const task = await Task.findById(req.params.id);

@@ -15,7 +15,6 @@ connectDB();
 const app = express();
 const httpServer = createServer(app);
 
-/* ===================== CORS ===================== */
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -36,12 +35,10 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-/* ===================== MIDDLEWARE ===================== */
 
 app.use(express.json());
 app.use(cookieParser());
 
-/* ===================== SOCKET.IO ===================== */
 
 const io = new Server(httpServer, {
   cors: {
@@ -52,7 +49,6 @@ const io = new Server(httpServer, {
 
 app.set("io", io);
 
-/* ===================== ROUTES ===================== */
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
@@ -65,7 +61,6 @@ app.get("/", (req, res) => {
   res.send("Backend running on Render ✅");
 });
 
-/* ===================== SOCKET EVENTS ===================== */
 
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
@@ -75,7 +70,6 @@ io.on("connection", (socket) => {
   });
 });
 
-/* ===================== SERVER ===================== */
 
 const PORT = process.env.PORT || 5000;
 

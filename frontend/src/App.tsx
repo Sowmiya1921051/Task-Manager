@@ -15,7 +15,6 @@ const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   return children;
 };
 
-// Removed placeholder Dashboard component
 
 function App() {
   return (

@@ -22,8 +22,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Check if user is logged in (optional: implement /me endpoint or persist in localStorage)
-        // For MVP, simplistic check or relying on localStorage
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
             setUser(JSON.parse(storedUser));

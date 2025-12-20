@@ -14,9 +14,7 @@ const loginSchema = z.object({
     password: z.string(),
 });
 
-// @desc    Register a new user
-// @route   POST /api/auth/register
-// @access  Public
+
 export const registerUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const validation = registerSchema.safeParse(req.body);
@@ -55,9 +53,7 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
     }
 };
 
-// @desc    Auth user & get token
-// @route   POST /api/auth/login
-// @access  Public
+
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
     try {
         const validation = loginSchema.safeParse(req.body);
@@ -69,7 +65,6 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
 
         const user = await User.findOne({ email });
 
-        // comparePassword is on the instance, need to define it in interface or cast to any for now to avoid complexity with Mongoose Types
         if (user && (await (user as any).matchPassword(password))) {
             generateToken(res, user._id);
             res.json({
@@ -85,9 +80,6 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     }
 };
 
-// @desc    Logout user / clear cookie
-// @route   POST /api/auth/logout
-// @access  Public
 export const logoutUser = (req: Request, res: Response) => {
     res.cookie('jwt', '', {
         httpOnly: true,
