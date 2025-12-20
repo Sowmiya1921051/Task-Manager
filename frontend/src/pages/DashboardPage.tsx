@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useTasks } from '../hooks/useTasks';
 import { useSocket } from '../hooks/useSocket';
-import { useQueryClient } from '@tanstack/react-query'; 
+import { useQueryClient } from '@tanstack/react-query';
 import TaskCard from '../components/TaskCard';
 import { Link } from 'react-router-dom';
 
@@ -35,8 +35,6 @@ const DashboardPage = () => {
     if (isLoading) return <div className="p-8">Loading tasks...</div>;
     if (error) return <div className="p-8 text-red-500">Error loading tasks</div>;
 
-    const columns = ['To Do', 'In Progress', 'Completed'];
-
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
             <header className="bg-white shadow p-4 flex justify-between items-center">
@@ -49,13 +47,13 @@ const DashboardPage = () => {
 
             <main className="flex-1 p-8 overflow-x-auto">
                 <div className="mb-6 flex justify-between">
-                    <h2 className="text-2xl font-bold">Board</h2>
+                    <h2 className="text-2xl font-bold">My Tasks Board</h2>
                     {/* Link to Create Task Page (to be implemented or Modal) */}
                     <Link to="/create-task" className="bg-indigo-600 text-white px-4 py-2 rounded shadow hover:bg-indigo-700">New Task</Link>
                 </div>
 
                 <div className="flex gap-6 h-full min-w-max">
-                    {columns.map(status => (
+                    {['To Do', 'In Progress', 'Review', 'Completed'].map(status => (
                         <div key={status} className="w-80 bg-gray-100 rounded-lg p-4 flex flex-col h-full">
                             <h3 className="font-bold text-gray-700 mb-4 flex justify-between">
                                 {status}
@@ -69,8 +67,8 @@ const DashboardPage = () => {
                         </div>
                     ))}
                 </div>
-            </main>
-        </div>
+            </main >
+        </div >
     );
 };
 

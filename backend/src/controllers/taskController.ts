@@ -59,7 +59,12 @@ export const createTask = async (req: Request, res: Response): Promise<void> => 
 // @access  Private
 export const getTasks = async (req: Request, res: Response) => {
     try {
-        const tasks = await Task.find({}).populate('assignedToId', 'name email').populate('creatorId', 'name email').sort({ createdAt: -1 });
+        const tasks = await Task.find({
+            $or: [
+                { creatorId: req.user?._id },
+                { assignedToId: req.user?._id }
+            ]
+        }).populate('assignedToId', 'name email').populate('creatorId', 'name email').sort({ createdAt: -1 });
         res.json(tasks);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
