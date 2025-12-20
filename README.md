@@ -13,6 +13,36 @@ A premium, full-stack collaborative task management application (Trello/Jira clo
 -   **📊 Task Analytics**: Quick overview of total, completed, and pending tasks.
 -   **🔍 Search & Filter**: Easily find tasks by title or filter by status.
 
+---
+
+## 🛠 My Development Journey
+
+This project showcases my ability to build a production-grade, full-stack application from scratch while solving complex engineering challenges.
+
+### 🌟 Key Achievements
+
+1.  **🎨 Modern UI/UX Redesign**:
+    -   Implemented a **Glassmorphism Design System** from scratch using Vanilla CSS and Tailwind utility variables.
+    -   Created a custom "Hub" navigation for high accessibility and a premium dashboard feel.
+    -   Added subtle micro-animations and smooth transitions for a responsive user experience.
+
+2.  **🏗 Robust Backend Architecture**:
+    -   Migrated to **Express 5** and optimized middleware for higher performance.
+    -   Ensured **100% Type Safety** across the board, including custom Express request types for user sessions.
+    -   Implemented a centralized error handling and database connection strategy.
+
+3.  **🔐 Security & Privacy**:
+    -   Enforced **Task Isolation logic**: Users can only interact with tasks they created or are assigned to, preventing data leakage.
+    -   Secure session management using **HttpOnly Cookies** and JWT.
+
+4.  **⚡ Real-time Collaboration**:
+    -   Integrated **Socket.io** to synchronize the Kanban board state across multiple browser tabs/users instantly.
+
+5.  **⚙ DevOps & Bug Squashing**:
+    -   Resolved critical environment-specific issues like wildcard routing errors and port binding conflicts for smooth deployment.
+
+---
+
 ## 🛠 Tech Stack
 
 ### Frontend
