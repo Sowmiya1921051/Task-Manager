@@ -45,25 +45,3 @@ POST /api/tasks
 PUT /api/tasks/:id
 
 DELETE /api/tasks/:id
-
-📄 License
-
-ISC License
-
-
----
-
-## ✅ Why this version is good
-✔ Short & readable  
-✔ Recruiter-friendly  
-✔ Clean GitHub display  
-✔ Easy to understand architecture  
-✔ Perfect for Internshala / Resume links  
-
-If you want:
-- 🔥 **One-page Internshala explanation**
-- 📸 **Add screenshots section**
-- 🎥 **Add demo video link**
-- 💼 **Resume project description**
-
-Just tell me 👍
