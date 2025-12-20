@@ -8,7 +8,7 @@ const taskSchema = z.object({
     description: z.string().optional(),
     dueDate: z.string().or(z.date()).optional(),
     priority: z.enum(['Low', 'Medium', 'High', 'Urgent']).optional(),
-    status: z.enum(['To Do', 'In Progress', 'Review', 'Completed']).optional(),
+    status: z.enum(['To Do', 'In Progress',  'Completed']).optional(),
     assignedToId: z.string().optional(),
 });
 
